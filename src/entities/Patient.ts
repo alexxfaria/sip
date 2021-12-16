@@ -1,5 +1,6 @@
-import {Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn} from "typeorm";
 import { v4 as uuid} from "uuid";
+import { User } from "./User";
 
 @Entity("paciente")
 class Patient {
@@ -35,6 +36,10 @@ class Patient {
 
     @Column()
     status: string;
+
+    @JoinColumn({ name: "id"})
+    @ManyToOne(() => User)
+    userID: User;
 
     @Column()
     user_id: string;
