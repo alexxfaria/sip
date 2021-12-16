@@ -5,10 +5,10 @@ import { PatientRepositories } from "../repositories/PatientRepositories";
 class PatientService {
     async execute({ name, rg, cpf, genero, cep, logradouro, numero, uf, cidade, status, user_id }) {
         const patientRepository = getCustomRepository(PatientRepositories);
-        if(!name){
+        if(!cpf){
             throw new Error("Name incorrect");
         };
-        const patientAlreadyExists = await patientRepository.findOne({ name });
+        const patientAlreadyExists = await patientRepository.findOne({ cpf });
         if(patientAlreadyExists){
             throw new Error("Patient already exists");
         };
