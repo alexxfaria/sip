@@ -20,7 +20,7 @@ class AuthenticateUserService {
       email:user.email
     }, "minhasenhasecreta",{
       subject: user.id,
-      expiresIn: "id",
+      expiresIn: "1h",
     });
     return token;
   }

@@ -31,7 +31,7 @@ class Patient {
     uf: string;
 
     @Column()
-    estado: string;
+    cidade: string;
 
     @Column()
     status: string;

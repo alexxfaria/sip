@@ -45,7 +45,7 @@ export class createPaciente1639487787542 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
-                        name: "estado",
+                        name: "cidade",
                         type: "varchar"
                     },
                     {
@@ -62,7 +62,7 @@ export class createPaciente1639487787542 implements MigrationInterface {
                         default: "now()"
                     },
                     {
-                        name: "updated_At",
+                        name: "updated_at",
                         type: "timestamp",
                         default: "now()"
                     }
