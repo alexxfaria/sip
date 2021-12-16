@@ -37,12 +37,12 @@ class Patient {
     @Column()
     status: string;
 
-    @JoinColumn({ name: "id"})
-    @ManyToOne(() => User)
-    userID: User;
-
     @Column()
     user_id: string;
+    
+    @JoinColumn({ name: "user_id"})
+    @ManyToOne(() => User)
+    userID: User;
 
     @CreateDateColumn()
     created_at: Date;
