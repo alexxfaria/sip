@@ -6,7 +6,10 @@ class DeleteUserController {
         const { id } = request.params;
         const deleteUserService = new DeleteUsersService();
         const deleteUsers = await deleteUserService.execute(id);
-        return response.json(deleteUsers);
+        if (deleteUsers instanceof Error) {
+            return response.status(404).json(deleteUsers.message);
+        }
+        return response.status(200).end();
     }
 }
 export { DeleteUserController }

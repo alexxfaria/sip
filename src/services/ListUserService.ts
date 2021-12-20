@@ -3,7 +3,7 @@ import { UsersRepositories } from "../repositories/UsersRepositories";
 
 
 class ListUserService{
-    async execute(user_id: string){
+    async execute(){
         const usersRepository = getCustomRepository(UsersRepositories);
         const users = await usersRepository.find();
         return users;

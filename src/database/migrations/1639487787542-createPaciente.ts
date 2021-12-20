@@ -70,9 +70,9 @@ export class createPaciente1639487787542 implements MigrationInterface {
                 foreignKeys: [
                     {
                         name: "FKuserpatient",
+                        columnNames: ["user_id"],
                         referencedTableName: "users",
                         referencedColumnNames: ["id"],
-                        columnNames: ["user_id"],
                         onDelete: "SET NULL",
                         onUpdate: "SET NULL"
                     }

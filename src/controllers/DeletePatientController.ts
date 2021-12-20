@@ -6,7 +6,10 @@ class DeletePatientController {
         const { id } = request.params;
         const deletePatientService = new DeletePatientService();
         const deletePatients = await deletePatientService.execute(id);
-        return response.json(deletePatients);
+        if (deletePatients instanceof Error) {
+            return response.status(404).json(deletePatients.message);
+        }
+        return response.status(200).end();
     }
 }
 export { DeletePatientController }
