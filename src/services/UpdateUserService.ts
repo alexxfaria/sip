@@ -4,10 +4,10 @@ import { hash } from "bcryptjs";
 
 type UpdateUser = {
     id: string;
-    name: string;
-    email: string;
-    admin: boolean;
-    password: string;
+    name?: string;
+    email?: string;
+    admin?: boolean;
+    password?: string;
 }
 
 class UpdateUserService {
@@ -19,13 +19,13 @@ class UpdateUserService {
         };
         const userAlreadyExists = await updateUserRepository.findOne({ email });
         if(userAlreadyExists){
-            throw new Error("User already exists");
+            throw new Error("User / email already exists");
         };
         const passwordHash = await hash(password, 8);
-        userAlreadyExistsId.name = name ? name : userAlreadyExistsId.name;
-        userAlreadyExistsId.email = email ? email : userAlreadyExistsId.email;
-        userAlreadyExistsId.password = passwordHash ? passwordHash : password;
-        userAlreadyExistsId.admin = admin ? admin : userAlreadyExistsId.admin;
+        userAlreadyExistsId.name = name;
+        userAlreadyExistsId.email = email;
+        userAlreadyExistsId.password = passwordHash;
+        userAlreadyExistsId.admin = admin;
 
         await updateUserRepository.save(userAlreadyExistsId);
         return userAlreadyExistsId;
