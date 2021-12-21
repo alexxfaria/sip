@@ -8,11 +8,11 @@ class AuthenticateUserService {
     const usersRepositories = getCustomRepository(UsersRepositories);
     const user = await usersRepositories.findOne({ email });
     if(!user){
-      throw new Error("Email ou Password incorrect");
+      throw new Error("Email ou Senha incorreta");
     }
     const passwordMatch = await compare(password, user.password);
     if(!passwordMatch){
-      throw new Error("Email ou Password incorrect");
+      throw new Error("Email ou Senha incorreta");
     }
     const token = sign({
       email:user.email

@@ -10,8 +10,7 @@ class UpdateUserController {
         if (user instanceof Error) {
             return response.status(404).json(user.message);
         }
-
-        return response.json(user);
+        return response.json('Usuario alterado com sucesso!');
     }
 }
 export { UpdateUserController };

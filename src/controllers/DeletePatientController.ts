@@ -9,7 +9,7 @@ class DeletePatientController {
         if (deletePatients instanceof Error) {
             return response.status(404).json(deletePatients.message);
         }
-        return response.status(200).end();
+        return response.json('Paciente excluido com sucesso!');
     }
 }
 export { DeletePatientController }
