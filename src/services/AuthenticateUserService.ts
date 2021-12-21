@@ -6,9 +6,7 @@ import { UsersRepositories } from "../repositories/UsersRepositories"
 class AuthenticateUserService {
   async execute({ email, password }){
     const usersRepositories = getCustomRepository(UsersRepositories);
-    const user = await usersRepositories.findOne({
-      email
-    });
+    const user = await usersRepositories.findOne({ email });
     if(!user){
       throw new Error("Email ou Password incorrect");
     }

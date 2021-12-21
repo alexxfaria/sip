@@ -1,4 +1,4 @@
-import { getCustomRepository, getConnection } from "typeorm";
+import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 
 
