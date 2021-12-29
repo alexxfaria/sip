@@ -10,6 +10,7 @@ import { DeletePatientController } from "./controllers/DeletePatientController";
 import { ListUserController } from "./controllers/ListUserController";
 import { DeleteUserController } from "./controllers/DeleteUserController";
 import { UpdateUserController } from "./controllers/UpdateUserController";
+import { UpdatePatientController } from "./controllers/UpdatePatientController";
 
 
 const router = Router();
@@ -23,6 +24,7 @@ const evolutePatientController = new EvolutePatientController();
 const deletePatientController = new DeletePatientController();
 const deleteUserController = new DeleteUserController();
 const updateUserController = new UpdateUserController();
+const updatePatientController = new UpdatePatientController();
 
 router.post("/users", userController.handle);
 router.post("/patients", ensureAuthenticated, ensureAdmin, patientController.handle);
@@ -36,5 +38,6 @@ router.delete("/patients/delete/:id", ensureAuthenticated, ensureAdmin, deletePa
 router.delete("/users/delete/:id", ensureAuthenticated, ensureAdmin, deleteUserController.handle);
 
 router.put("/users/put/:id", ensureAuthenticated, ensureAdmin, updateUserController.handle);
+router.put("/patients/put/:id", ensureAuthenticated, ensureAdmin, updatePatientController.handle);
 
 export { router };
