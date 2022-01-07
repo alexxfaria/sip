@@ -12,8 +12,7 @@ class EvolutePatientService {
         const evolutePatientRepository = getCustomRepository(EvolutePatientRepositories);
         if(!descricao){
             throw new Error("Description incorrect");
-        };
-        
+        }
         const evolutePatient = evolutePatientRepository.create({ descricao, user_id_alter, patient_id });
         await evolutePatientRepository.save(evolutePatient);
         return evolutePatient;

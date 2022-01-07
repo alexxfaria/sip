@@ -16,11 +16,11 @@ class UpdateUserService {
         const userAlreadyExistsId =  await updateUserRepository.findOne({ id });
         if (!userAlreadyExistsId) {
             return new Error("User already exists");
-        };
+        }
         const userAlreadyExists = await updateUserRepository.findOne({ email });
         if(userAlreadyExists){
             throw new Error("User / email already exists");
-        };
+        }
         const passwordHash = await hash(password, 8);
         userAlreadyExistsId.name = name;
         userAlreadyExistsId.email = email;

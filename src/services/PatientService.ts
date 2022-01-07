@@ -7,11 +7,11 @@ class PatientService {
         const patientRepository = getCustomRepository(PatientRepositories);
         if(!cpf){
             throw new Error("Name incorrect");
-        };
+        }
         const patientAlreadyExists = await patientRepository.findOne({ cpf });
         if(patientAlreadyExists){
             throw new Error("Patient already exists");
-        };
+        }
         const patient = patientRepository.create({ name, rg, cpf, genero, cep, logradouro, numero, uf, cidade, status, user_id });
         await patientRepository.save(patient);
         return patient;

@@ -21,11 +21,11 @@ class UpdatePatientService {
         const patientAlreadyExistsId =  await updatePatientRepository.findOne({ id });
         if (!patientAlreadyExistsId) {
             return new Error("Patient already exists");
-        };
+        }
         const patientAlreadyExists = await updatePatientRepository.findOne({ cpf });
         if(patientAlreadyExists){
             throw new Error("CPF already exists");
-        };
+        }
         patientAlreadyExistsId.name = name;
         patientAlreadyExistsId.rg = rg;
         patientAlreadyExistsId.cpf = cpf;

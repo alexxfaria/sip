@@ -3,14 +3,13 @@ import {verify} from "jsonwebtoken";
 
 interface IPayload {
     sub: string;
-};
+}
 
 export function ensureAuthenticated(request: Request, response: Response, next: NextFunction) {
     const authToken = request.headers.authorization;
     if(!authToken) {
         return response.status(401).end();
-    };
-
+    }
     const [, token] = authToken.split(" ");
     try {
         const { sub } = verify(token, "minhasenhasecreta") as IPayload;
@@ -18,5 +17,5 @@ export function ensureAuthenticated(request: Request, response: Response, next: 
         return next();
     }catch (err) {
         return response.status(401).end();
-    };
+    }
 }

@@ -22,7 +22,7 @@ app.use((err: Error, request:Request, response:Response, next:NextFunction) => {
             status: "error",
             message: "Internal Server Error",
         });
-    
+
 })
 
 app.listen(3001, () => console.log("Server is running"));
